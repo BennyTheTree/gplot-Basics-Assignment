@@ -1,0 +1,180 @@
+---
+title: "My First Assignment"
+author: "Benjamin Kamelman"
+date: "2025/01/21"
+output: html_document
+---
+  
+  
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gapminder)
+
+
+```
+
+## My First Figure of the Gapminder Data
+
+This is my first R Markdown document. I am learning how to use **Git** and *Markdown* syntax for better version control and reproducibility in my projects.
+
+```
+{r gapminder 3.4}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point()
+
+
+```
+
+## Including Plots
+```{r gapminder 3.6}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point() + geom_smooth()
+
+
+```
+```{r gapminder 3.7}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point() + 
+  geom_smooth(method = "lm")
+
+
+```
+```{r gapminder 3.8}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point() + 
+  geom_smooth(method = "lm") +
+  scale_x_log10()
+
+
+```
+```{r gapminder 3.9}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point() + 
+  geom_smooth(method = "lm") +
+  scale_x_log10(labels = scales::dollar)
+
+
+```
+```{r gapminder 3.10}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point(color = "purple") + 
+  geom_smooth(method = "loess") +
+  scale_x_log10(labels = scales::dollar)
+
+
+```
+```{r gapminder 3.11}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point(color = "purple") + 
+  geom_smooth(method = "loess") +
+  scale_x_log10(labels = scales::dollar)
+
+
+```
+```{r gapminder 3.12}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+p + geom_point(alpha = 0.3) + 
+  geom_smooth(color = "orange", se = FALSE, size = 8, method = "lm") +
+  scale_x_log10(labels = scales::dollar)
+
+
+```
+
+
+```{r gapminder 3.13}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+
+p + geom_point(alpha = 0.3) + 
+  geom_smooth(method = "lm") +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = " GDP Per Capita",
+       y = "Life Expectancy in Years",
+       title = "Economic Growth and Life Expectancy",
+       caption = "Source: Gapminder. ")
+
+
+```
+```{r gapminder 3.14}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp,
+                          color = continent))
+
+p + geom_point(alpha = 0.3) + 
+  geom_smooth(method = "loess") +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = " GDP Per Capita",
+       y = "Life Expectancy in Years",
+       title = "Economic Growth and Life Expectancy",
+       caption = "Source: Gapminder. ")
+
+
+```
+```{r gapminder 3.15}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp,
+                          color = continent,
+                          fill = continent))
+
+p + geom_point(alpha = 0.3) + 
+  geom_smooth(method = "loess") +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = " GDP Per Capita",
+       y = "Life Expectancy in Years",
+       title = "Economic Growth and Life Expectancy",
+       caption = "Source: Gapminder. ")
+
+
+```
+```{r gapminder 3.16}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+
+p + geom_point(mapping = aes(color = continent)) + 
+  geom_smooth(method = "loess") +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = " GDP Per Capita",
+       y = "Life Expectancy in Years",
+       title = "Economic Growth and Life Expectancy",
+       caption = "Source: Gapminder. ")
+
+
+```
+```{r gapminder 3.17}
+p <- ggplot(data = gapminder,
+            mapping = aes(x = gdpPercap,
+                          y = lifeExp))
+
+p + geom_point(mapping = aes(color = log(pop))) + 
+  geom_smooth(method = "loess") +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = " GDP Per Capita",
+       y = "Life Expectancy in Years",
+       title = "Economic Growth and Life Expectancy",
+       caption = "Source: Gapminder. ")
+
+
+```
+
